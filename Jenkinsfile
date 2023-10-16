@@ -9,8 +9,8 @@ pipeline {
         stage ('Checkout') {
             steps {
                 sh'''
-                #rm -rf game-of-life
-                sudo git clone https://github.com/Arpan223/game-of-life.git
+                rm -rf game-of-life
+                sudo git clone https://github.com/wakaleo/game-of-life.git
                 '''
             }
         }
