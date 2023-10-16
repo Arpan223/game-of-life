@@ -2,14 +2,14 @@ pipeline {
     agent {
         node {
             label 'built-in'
-            customWorkspace '/home/ec2-user'
+            customWorkspace '/opt'
         }
     }
     stages {
         stage ('Checkout') {
             steps {
                 sh'''
-                rm -rf game-of-life
+                #rm -rf game-of-life
                 sudo git clone https://github.com/Arpan223/game-of-life.git
                 '''
             }
@@ -17,7 +17,7 @@ pipeline {
         stage ('Build') {
             steps {
                 sh '''
-                cd /home/ec2-user/game-of-life
+                cd /opt/game-of-life
                 mvn clean install
                 '''
             }
