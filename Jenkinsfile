@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'Linux'
+            label 'built-in'
             customWorkspace '/home/ec2-user'
         }
     }
