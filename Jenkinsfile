@@ -9,7 +9,7 @@ pipeline {
         stage ('Checkout') {
             steps {
                 sh'''
-                sudo git clone https://github.com/wakaleo/game-of-life.git
+                sudo git clone https://github.com/Arpan223/game-of-life.git
                 '''
             }
         }
