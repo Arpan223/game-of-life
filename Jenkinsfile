@@ -23,7 +23,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'cp /opt/gameoflife-web/target/gameoflife.war /mnt/apache-tomcat-9.0.82/webapps'
+                sh 'cp /opt/gameoflife-web/target/gameoflife.war /mnt/apache-tomcat-9.0.83/webapps'
             }
         }
     }
