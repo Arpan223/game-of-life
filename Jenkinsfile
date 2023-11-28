@@ -16,7 +16,7 @@ pipeline {
         stage ('Build') {
             steps {
                 sh '''
-                cd /opt/project
+                cd /opt
                 mvn clean install
                 '''
             }
