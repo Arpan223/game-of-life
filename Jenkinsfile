@@ -9,6 +9,8 @@ pipeline {
         stage ('Checkout') {
             steps {
                 sh'''
+                cd /opt
+                rm -rf *
                 sudo git clone https://github.com/Arpan223/game-of-life.git
                 '''
             }
@@ -16,8 +18,6 @@ pipeline {
         stage ('Build') {
             steps {
                 sh '''
-                cd /opt
-                rm -rf *
                 cd /opt/project
                 mvn clean install
                 '''
@@ -25,7 +25,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'cp /opt/gameoflife-web/target/gameoflife.war /mnt/apache-tomcat-9.0.83/webapps'
+                sh 'cp /opt/project/gameoflife-web/target/gameoflife.war /mnt/apache-tomcat-9.0.83/webapps'
             }
         }
     }
