@@ -2,7 +2,7 @@ pipeline {
     agent {
         node {
             label 'built-in'
-            customWorkspace '/home/ec2-user'
+            customWorkspace '/opt/project'
         }
     }
     stages {
@@ -16,14 +16,14 @@ pipeline {
         stage ('Build') {
             steps {
                 sh '''
-                cd /home/ec2-user/game-of-life
+                cd /opt/project
                 mvn clean install
                 '''
             }
         }
         stage ('Deploy') {
             steps {
-                sh 'cp /home/ec2-user/game-of-life/gameoflife-web/target/gameoflife.war /mnt/apache-tomcat-9.0.82/webapps'
+                sh 'cp /opt/gameoflife-web/target/gameoflife.war /mnt/apache-tomcat-9.0.82/webapps'
             }
         }
     }
